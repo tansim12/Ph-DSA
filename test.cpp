@@ -51,15 +51,51 @@
 
 
 // setprecision ---> দশমিকের পরে কয় ঘর নিব 
+// #include <iostream>
+// #include <iomanip>// input output manipulation
+// using namespace std;
+
+// int main()
+// {
+//     double x = 3.03393;
+
+//     cout << fixed << setprecision(2) << x ;
+    
+//     x > 4 ? cout << "Big" : cout << "Small";
+
+//     return 0;
+// }
+
+
 #include <iostream>
 #include <iomanip>// input output manipulation
 using namespace std;
 
 int main()
 {
-    double x = 3.03393;
+    int x ;
+    cin >> x;
 
-    cout << fixed << setprecision(2) << x ;
+   switch (x)
+   {
+   case 1:
+    /* code */
+    cout << "Friday";
+    break;
+   case 2:
+    /* code */
+    cout << "Saturday";
+    break;
+   case 3:
+    /* code */
+    cout << "Sunday";
+    break;
+   
+   default:
+   cout << "Kono din nai";
+    break;
+
+   }
 
     return 0;
 }
