@@ -98,35 +98,54 @@
 //     return 0;
 // }
 
+
+// min, max, swap 
+// #include <iostream>
+// #include <algorithm>
+// using namespace std;
+
+// int main()
+// {
+//     int x, y;
+//     cin >> x >> y;
+
+//     // swap
+//     swap(x, y);
+
+//     // min
+//     cout << min(x, y) << endl;
+
+//     // min multi value
+//     cout << min({
+//                 9,
+//                 39,
+//                 94,
+//             })
+//          << endl;
+
+//     // max
+//     cout << max(x, y) << endl;
+//     // cout << swap(x,y) << endl;
+
+//     cout << "X-> " << x << endl
+//          << "Y-> " << y;
+
+//     return 0;
+// }
+
+
+// string 
 #include <iostream>
-#include <algorithm>
 using namespace std;
 
 int main()
 {
-    int x, y;
-    cin >> x >> y;
+    char string[100];
 
-    // swap
-    swap(x, y);
+    // input string 
+    cin.getline(string,100);
+    cout << string;
 
-    // min
-    cout << min(x, y) << endl;
-
-    // min multi value
-    cout << min({
-                9,
-                39,
-                94,
-            })
-         << endl;
-
-    // max
-    cout << max(x, y) << endl;
-    // cout << swap(x,y) << endl;
-
-    cout << "X-> " << x << endl
-         << "Y-> " << y;
-
+   
     return 0;
 }
