@@ -135,21 +135,37 @@
 
 
 // string 
-#include <iostream>
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+//     int x,y ;
+//     char string[100];
+//     cin >> x >> y;
+
+//     cin.ignore(); // enter কে ignore করে । 
+
+//     // input string 
+//     cin.getline(string,100);
+
+//     cout << x << endl << string << endl << y;
+
+   
+//     return 0;
+// }
+
+
+
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-    int x,y ;
-    char string[100];
-    cin >> x >> y;
-
-    cin.ignore(); // enter কে ignore করে । 
-    
-    // input string 
-    cin.getline(string,100);
-
-    cout << x << endl << string << endl << y;
+   
+    string s ;
+    cin >> s;
+    cout << s ;
 
    
     return 0;
