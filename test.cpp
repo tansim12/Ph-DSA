@@ -192,31 +192,71 @@
 
 // dynamic array fn return
 // fn return এর পরে ও dynamic array এর ভালু পাওয়া যাই । কিন্তু static array এর ভালু পাওয়া যাই না । 
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int *fn()
+// {
+//     // int arr[5];
+//     int *arr = new int[5];
+//     for (int i = 0; i < 5; i++)
+//     {
+//         /* code */
+//         cin >> arr[i];
+//     }
+
+//     return arr;
+// }
+
+// int main()
+// {
+
+//     int *mainArray = fn();
+//     for (int i = 0; i < 5; i++)
+//     {
+//         /* code */
+//         cout << mainArray[i] << " ";
+//     }
+
+//     return 0;
+// }
+
+
+// dynamic array size increment 
 #include <bits/stdc++.h>
 using namespace std;
 
-int *fn()
-{
-    // int arr[5];
-    int *arr = new int[5];
+int main() {
+    int *arr1 = new int[3];
+    for (int i = 0; i < 3; i++)
+    {
+        /* code */
+        cin >> arr1[i];
+    }
+
+    // new array 
+    int *arr2 = new int[5];
+
+    // copy array by the arr1;
+    for (int i = 0; i < 3; i++)
+    {
+        /* code */
+        arr2[i] = arr1[i];
+    }
+
+    arr2[3] = 33;
+    arr2[4] = 99;
+    
+    delete[] arr1; // delete the arr1;
+
+
+
     for (int i = 0; i < 5; i++)
     {
         /* code */
-        cin >> arr[i];
+        cout << arr2[i] << " ";
     }
-
-    return arr;
-}
-
-int main()
-{
-
-    int *mainArray = fn();
-    for (int i = 0; i < 5; i++)
-    {
-        /* code */
-        cout << mainArray[i] << " ";
-    }
-
+    
+    
     return 0;
 }
