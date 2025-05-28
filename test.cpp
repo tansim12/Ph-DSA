@@ -157,16 +157,42 @@
 
 
 
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main()
+// {
+   
+//     string s ;
+//     cin >> s;
+//     cout << s ;
+
+   
+//     return 0;
+// }
+
+
+
+// dynamic array 
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-   
-    string s ;
-    cin >> s;
-    cout << s ;
+int main() {
+    
+    int *arr = new int[5];
 
-   
+    for (int i = 0; i < 5; i++)
+    {
+        /* code */
+        cin >> arr[i];
+    }
+
+
+    for (int i = 0; i < 5; i++)
+    {
+        /* code */
+        cout << arr[i] << " ";
+    }
+    
     return 0;
 }
