@@ -98,8 +98,7 @@
 //     return 0;
 // }
 
-
-// min, max, swap 
+// min, max, swap
 // #include <iostream>
 // #include <algorithm>
 // using namespace std;
@@ -133,8 +132,7 @@
 //     return 0;
 // }
 
-
-// string 
+// string
 // #include <iostream>
 // using namespace std;
 
@@ -144,55 +142,81 @@
 //     char string[100];
 //     cin >> x >> y;
 
-//     cin.ignore(); // enter কে ignore করে । 
+//     cin.ignore(); // enter কে ignore করে ।
 
-//     // input string 
+//     // input string
 //     cin.getline(string,100);
 
 //     cout << x << endl << string << endl << y;
 
-   
 //     return 0;
 // }
-
-
 
 // #include <bits/stdc++.h>
 // using namespace std;
 
 // int main()
 // {
-   
+
 //     string s ;
 //     cin >> s;
 //     cout << s ;
 
-   
+//     return 0;
+// }
+
+// dynamic array
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+
+//     int *arr = new int[5];
+
+//     for (int i = 0; i < 5; i++)
+//     {
+//         /* code */
+//         cin >> arr[i];
+//     }
+
+//     for (int i = 0; i < 5; i++)
+//     {
+//         /* code */
+//         cout << arr[i] << " ";
+//     }
+
 //     return 0;
 // }
 
 
 
-// dynamic array 
+// dynamic array fn return
+// fn return এর পরে ও dynamic array এর ভালু পাওয়া যাই । কিন্তু static array এর ভালু পাওয়া যাই না । 
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    
+int *fn()
+{
+    // int arr[5];
     int *arr = new int[5];
-
     for (int i = 0; i < 5; i++)
     {
         /* code */
         cin >> arr[i];
     }
 
+    return arr;
+}
 
+int main()
+{
+
+    int *mainArray = fn();
     for (int i = 0; i < 5; i++)
     {
         /* code */
-        cout << arr[i] << " ";
+        cout << mainArray[i] << " ";
     }
-    
+
     return 0;
 }
