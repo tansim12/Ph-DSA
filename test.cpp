@@ -223,40 +223,40 @@
 
 
 // dynamic array size increment 
-#include <bits/stdc++.h>
-using namespace std;
+// #include <bits/stdc++.h>
+// using namespace std;
 
-int main() {
-    int *arr1 = new int[3];
-    for (int i = 0; i < 3; i++)
-    {
-        /* code */
-        cin >> arr1[i];
-    }
+// int main() {
+//     int *arr1 = new int[3];
+//     for (int i = 0; i < 3; i++)
+//     {
+//         /* code */
+//         cin >> arr1[i];
+//     }
 
-    // new array 
-    int *arr2 = new int[5];
+//     // new array 
+//     int *arr2 = new int[5];
 
-    // copy array by the arr1;
-    for (int i = 0; i < 3; i++)
-    {
-        /* code */
-        arr2[i] = arr1[i];
-    }
+//     // copy array by the arr1;
+//     for (int i = 0; i < 3; i++)
+//     {
+//         /* code */
+//         arr2[i] = arr1[i];
+//     }
 
-    arr2[3] = 33;
-    arr2[4] = 99;
+//     arr2[3] = 33;
+//     arr2[4] = 99;
     
-    delete[] arr1; // delete the arr1;
+//     delete[] arr1; // delete the arr1;
 
 
 
-    for (int i = 0; i < 5; i++)
-    {
-        /* code */
-        cout << arr2[i] << " ";
-    }
+//     for (int i = 0; i < 5; i++)
+//     {
+//         /* code */
+//         cout << arr2[i] << " ";
+//     }
     
     
-    return 0;
-}
+//     return 0;
+// }
