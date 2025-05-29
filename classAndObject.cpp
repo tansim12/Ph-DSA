@@ -27,6 +27,34 @@
 // }
 
 // constructor
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// class Student
+// {
+// public:
+//     int role;
+//     double gpa;
+
+//     Student(int role, double gpa)
+//     {
+//         this->role = role;
+//         this->gpa = gpa;
+//     }
+// };
+
+// int main()
+// {
+
+//     Student tansim(23, 3.03);
+//     Student tansim2(20, 5.03);
+
+//     cout << tansim.role << " " << tansim.gpa << endl;
+//     cout << tansim2.role << " " << tansim2.gpa << endl;
+//     return 0;
+// }
+
+// dynamic object
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -46,10 +74,15 @@ public:
 int main()
 {
 
-    Student tansim(23, 3.03);
-    Student tansim2(23, 3.03);
+    // Static Ojbect
+    //   Student tansim(23, 3.03);
+    //     Student tansim2(20, 5.03);
 
-    cout << tansim.role << " " << tansim.gpa << endl;
-    cout << tansim2.role << " " << tansim2.gpa << endl;
+    // dynamic object 
+    Student *tansim = new Student(23, 3.03);  // tansim is a pointer  
+    Student *tansim2 = new Student(20, 3.53);
+
+    cout << tansim->role << " " << tansim->gpa << endl;
+    cout << tansim2->role << " " << tansim2->gpa << endl;
     return 0;
 }
