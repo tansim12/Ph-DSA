@@ -55,34 +55,71 @@
 // }
 
 // dynamic object
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// class Student
+// {
+// public:
+//     int role;
+//     double gpa;
+
+//     Student(int role, double gpa)
+//     {
+//         this->role = role;
+//         this->gpa = gpa;
+//     }
+// };
+
+// int main()
+// {
+
+//     // Static Ojbect
+//     //   Student tansim(23, 3.03);
+//     //     Student tansim2(20, 5.03);
+
+//     // dynamic object 
+//     Student *tansim = new Student(23, 3.03);  // tansim is a pointer  
+//     Student *tansim2 = new Student(20, 3.53);
+
+//     cout << tansim->role << " " << tansim->gpa << endl;
+//     cout << tansim2->role << " " << tansim2->gpa << endl;
+//     return 0;
+// }
+
+
+
+// sort 
 #include <bits/stdc++.h>
 using namespace std;
 
-class Student
-{
-public:
-    int role;
-    double gpa;
-
-    Student(int role, double gpa)
+int main() {
+    int n ;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
     {
-        this->role = role;
-        this->gpa = gpa;
+        /* code */
+        cin >> arr[i];
     }
-};
 
-int main()
-{
 
-    // Static Ojbect
-    //   Student tansim(23, 3.03);
-    //     Student tansim2(20, 5.03);
+    // asc sort 
+    sort(arr,arr+n);
 
-    // dynamic object 
-    Student *tansim = new Student(23, 3.03);  // tansim is a pointer  
-    Student *tansim2 = new Student(20, 3.53);
+    // desc sort 
+    sort(arr , arr+n, greater<int>());
 
-    cout << tansim->role << " " << tansim->gpa << endl;
-    cout << tansim2->role << " " << tansim2->gpa << endl;
+
+
+
+
+    for (int i = 0; i < n; i++)
+    {
+        /* code */
+        cout << arr[i] << " "; 
+    }
+    
+    
     return 0;
 }
