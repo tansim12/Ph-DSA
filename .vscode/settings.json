@@ -5,6 +5,8 @@
     "new": "cpp",
     "typeindex": "cpp",
     "typeinfo": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "iosfwd": "cpp",
+    "string": "cpp"
   }
 }

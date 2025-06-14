@@ -2,14 +2,13 @@
 // using namespace std;
 
 // int main() {
-    
+
 //     string s = "Hello World" ;
 //     for(string:: iterator it = s.begin(); it < s.end();it++) {
 //         cout<< *it << endl;
 //     };
 //     return 0;
 // }
-
 
 // #include <bits/stdc++.h>
 // using namespace std;
@@ -26,17 +25,38 @@
 //     return 0;
 // }
 
+// #include <bits/stdc++.h>
+// using namespace std;
 
+// int main() {
+//     int x ;
+//     cin >> x;
+//     cin.ignore(); // enter কে ignore করতে হবে ।
+//     string s ;
+//     getline(cin, s);
+//     cout << x << endl ;
+//     cout << s ;
+//     return 0;
+// }
+
+// !stringstream
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    int x ;
-    cin >> x;
-    cin.ignore(); // enter কে ignore করতে হবে । 
-    string s ;
+int main()
+{
+    string s;
     getline(cin, s);
-    cout << x << endl ; 
-    cout << s ; 
+    stringstream ss(s);
+
+    string word;
+
+    while (ss >> word)
+    {
+        /* code */
+        cout << word << endl;
+    }
+
+    // cout << s << endl ;
     return 0;
 }
