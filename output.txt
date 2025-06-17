@@ -1,6 +1,1 @@
-hello
-world
-my
-name
-is
-tansim
+Hel
