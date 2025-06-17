@@ -22,4 +22,33 @@
 
 
 
+// ! sor by asc and desc
+// #include <bits/stdc++.h>
+// using namespace std;
 
+// int main() {
+//     string s ;
+//     getline(cin , s);
+
+//     // sort(s.begin(),s.end()); // ASC 
+//     sort(s.begin(),s.end(),greater<char>()); // DESC
+//     cout << s << endl ;
+//     return 0;
+// }
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    string s ; 
+    getline(cin , s);
+
+    for (auto &&i : s)
+    {
+        cout << i << endl ;
+    }
+    
+    return 0;
+}
