@@ -97,6 +97,45 @@
 
 //! Class inside function
 
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// class Student
+// {
+// public:
+//     string name;
+//     int roll;
+
+//     // constructor
+//     Student(string name , int roll)
+//     {
+//         this->name = name;
+//         this->roll = roll;
+//     }
+
+//     void call(int age = 0)
+//     {
+
+//         cout << name << " " << roll << " " << age << endl;
+//     }
+// };
+
+// int main()
+// {
+
+//     Student tansim("Tansim",33);
+//     Student tashdid("Tashdid",20);
+
+//     tansim.call(10);
+//     tashdid.call();
+//     return 0;
+// }
+
+
+
+
+//! Dynamic class and many case copy object
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -113,7 +152,7 @@ public:
         this->roll = roll;
     }
 
-    void call(int age)
+    void call(int age = 0)
     {
 
         cout << name << " " << roll << " " << age << endl;
@@ -123,10 +162,16 @@ public:
 int main()
 {
 
-    Student tansim("Tansim",33);
-    Student tashdid("Tashdid",20);
+    Student* tansim  = new Student("Tansim",33);
+    Student* sojib  = new Student("Sojib",12);
 
-    tansim.call(10);
-    tashdid.call(90);
+    // sojib = tansim ;  // case 1
+    // sojib->name = tansim->name; // case 2
+    *sojib = *tansim; // case 3
+
+    delete tansim;
+
+    // cout << tansim->name << "==> " << "Tansim" << endl ; 
+    cout << sojib->name << "==> " << "sojib" << endl  ; 
     return 0;
 }
