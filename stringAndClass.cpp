@@ -36,19 +36,19 @@
 //     return 0;
 // }
 
+//! for range loop 
+// #include <bits/stdc++.h>
+// using namespace std;
 
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
+// int main() {
     
-    string s ; 
-    getline(cin , s);
+//     string s ; 
+//     getline(cin , s);
 
-    for (auto &&i : s)
-    {
-        cout << i << endl ;
-    }
+//     for (auto &&i : s)
+//     {
+//         cout << i << endl ;
+//     }
     
-    return 0;
-}
+//     return 0;
+// }
