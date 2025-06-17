@@ -67,27 +67,66 @@
 //     return 0;
 // }
 
+// !reverse word
+// #include <bits/stdc++.h>
+// using namespace std;
 
-// !reverse word 
+// int main()
+// {
+//     string s;
+//     getline(cin, s);
+
+//     stringstream ss(s);
+
+//     string word;
+
+//     ss >> word;
+//     reverse(word.begin(), word.end());
+//     cout << word;
+
+//     while (ss >> word)
+//     {
+//         /* code */
+
+//         reverse(word.begin(), word.end());
+//         cout << " " << word;
+//     }
+
+//     return 0;
+// }
+
+//! Class inside function
+
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
+class Student
 {
-    string s;
-    getline(cin, s);
+public:
+    string name;
+    int roll;
 
-    stringstream ss(s);
-
-    string word;
-
-    while (ss >> word)
+    // constructor
+    Student(string name , int roll)
     {
-        /* code */
-
-        reverse(word.begin(), word.end());
-        cout << word << " ";
+        this->name = name;
+        this->roll = roll;
     }
 
+    void call(int age)
+    {
+
+        cout << name << " " << roll << " " << age << endl;
+    }
+};
+
+int main()
+{
+
+    Student tansim("Tansim",33);
+    Student tashdid("Tashdid",20);
+
+    tansim.call(10);
+    tashdid.call(90);
     return 0;
 }
