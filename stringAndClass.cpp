@@ -52,3 +52,19 @@
     
 //     return 0;
 // }
+
+//! array reverse 
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int arr[5] = {1,2,3,4,5};
+    reverse(arr , arr+5);
+    
+    for (auto &&i : arr)
+    {
+        cout << i << endl;
+    }
+    
+    return 0;
+}
