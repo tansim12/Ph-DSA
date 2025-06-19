@@ -1,33 +1,44 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+class Student
+{
+public:
+    string nm;
+    int cls;
+    string s;
+    int id;
+    int math;
+    int eng;
+
+    int totalMark()
+    {
+        return this->math + this->eng;
+    }
+};
+
+bool compare(Student l, Student r)
+{
+
+    return l.totalMark() == r.totalMark() ? l.id < r.id : l.totalMark() > r.totalMark();
+};
+
 int main()
 {
     int n;
     cin >> n;
-    int arr[n];
-    for (int i = 0; i < n; i++)
+    Student student[n];
+
+    for (auto &&i : student)
     {
-        /* code */
-        cin >> arr[i];
+        cin >> i.nm >> i.cls >> i.s >> i.id >> i.math >> i.eng;
     }
 
-    sort(arr, arr + n);
+    sort(student, student + n, compare);
 
-    for (int i = 0; i < n; i++)
+    for (auto &&i : student)
     {
-        /* code */
-        cout << arr[i] << " ";
-    }
-
-    cout << endl;
-
-    sort(arr, arr + n , greater<int>());
-
-    for (int i = 0; i < n; i++)
-    {
-        /* code */
-        cout << arr[i] << " ";
+        cout << i.nm << " " << i.cls << " " << i.s << " " << i.id << " " << i.math << " " << i.eng << endl;
     }
 
     return 0;
