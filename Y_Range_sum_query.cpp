@@ -5,24 +5,44 @@ int main()
 {
     int n, t;
     cin >> n >> t;
-    vector<int> arr(n);
+    vector<long long int> arr(n);
+    vector<long long int> prefixSumArray(n);
     // O(n)
     for (auto &&i : arr)
     {
         cin >> i;
     }
 
+    // create prefix sum by new array
+    long long int prefixSum = 0;
+    for (size_t i = 0; i < n; i++)
+    {
+        /* code */
+        prefixSumArray[i] = prefixSum + arr[i];
+        prefixSum += arr[i];
+    }
+
     // O(n*m)
-    for (size_t i = 0; i < t; i++)
+    while (t--)
     {
         /* code */
         int firstIndex, lastIndex;
         cin >> firstIndex >> lastIndex;
-        int sum = 0;
-        for (size_t i = firstIndex - 1; i <= lastIndex - 1; i++)
+        firstIndex --;
+        lastIndex --;
+
+       long long int sum = 0;
+        if (firstIndex == 0)
         {
-            sum += arr[i];
+            /* code */
+            sum = prefixSumArray[lastIndex];
         }
+        else
+        {
+            // মাঝের গুলা sum করতে বলে । firstIndex এর আগের গুলা বাদ দিয়ে দিতে হবে ।  
+            sum = abs(prefixSumArray[lastIndex] - prefixSumArray[firstIndex - 1]);
+        }
+
         cout << sum << endl;
     }
 
