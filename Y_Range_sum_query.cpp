@@ -22,7 +22,7 @@ int main()
         prefixSum += arr[i];
     }
 
-    // O(n*m)
+    // O(n)
     while (t--)
     {
         /* code */
