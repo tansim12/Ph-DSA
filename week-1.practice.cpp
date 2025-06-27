@@ -62,7 +62,39 @@
 //     return 0;
 // }
 
-// !Equilibrium Index using prefix sum . 
+// !Equilibrium Index using prefix sum .
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main()
+// {
+//     int n;
+//     cin >> n;
+//     vector<int> arr(n);
+//     int totalSum =0,leftSum = 0;
+//     for (auto &&i : arr)
+//     {
+//         cin >> i;
+//         totalSum+=i;
+//     }
+
+//     for (size_t i = 0; i < n; i++)
+//     {
+//         /* code */
+//         totalSum -= arr[i] ;// now totalSum is right sum. টোটাল থেকে arr[i] বাদ দিলেই rightSum থাকে
+
+//         if (totalSum == leftSum)
+//         {
+//             /* code */
+//             cout << i << endl  ;
+//         }
+//         leftSum += arr[i];
+
+//     }
+
+//     return 0;
+// }
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -71,28 +103,53 @@ int main()
     int n;
     cin >> n;
     vector<int> arr(n);
-    int totalSum =0,leftSum = 0;
     for (auto &&i : arr)
     {
         cin >> i;
-        totalSum+=i;
     }
+    sort(arr.begin(), arr.end());
+    int t;
+    cin >> t;
 
-    for (size_t i = 0; i < n; i++)
+    while (t--)
     {
         /* code */
-        totalSum -= arr[i] ;// now totalSum is right sum. টোটাল থেকে arr[i] বাদ দিলেই rightSum থাকে
+        int left = 0;
+        int right = arr.size() - 1;
+        bool isFound = false;
+        int givenValue;
+        cin >> givenValue;
+        while (left <= right)
+        {
+            int mid = (left + right) / 2;
+            /* code */
+            if (arr[mid] == givenValue)
+            {
+                /* code */
+                isFound = true;
+                break;
+            }
+            else if (arr[mid] < givenValue)
+            {
+                /* code */
+                left = mid + 1;
+            }
+            else
+            {
+                right = mid - 1;
+            }
+        }
 
-        if (totalSum == leftSum)
+        if (isFound)
         {
             /* code */
-            cout << i << endl  ;
+            cout << "YES" << endl;
         }
-        leftSum += arr[i];
-        
+        else
+        {
+            cout << "NO" << endl;
+        }
     }
-    
-    
 
     return 0;
 }
