@@ -23,7 +23,7 @@
 //     return 0;
 // }
 
-//!Equilibrium Index 
+//! Equilibrium Index
 // #include <bits/stdc++.h>
 // using namespace std;
 
@@ -62,3 +62,37 @@
 //     return 0;
 // }
 
+// !Equilibrium Index using prefix sum . 
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    int totalSum =0,leftSum = 0;
+    for (auto &&i : arr)
+    {
+        cin >> i;
+        totalSum+=i;
+    }
+
+    for (size_t i = 0; i < n; i++)
+    {
+        /* code */
+        totalSum -= arr[i] ;// now totalSum is right sum. টোটাল থেকে arr[i] বাদ দিলেই rightSum থাকে
+
+        if (totalSum == leftSum)
+        {
+            /* code */
+            cout << i << endl  ;
+        }
+        leftSum += arr[i];
+        
+    }
+    
+    
+
+    return 0;
+}
