@@ -1,3 +1,32 @@
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// class Node
+// {
+// public:
+//     int value;
+//     Node *next;
+
+//     Node(int value)
+//     {
+//         this->value = value;
+//         this->next = NULL;
+//     }
+// };
+
+// int main()
+// {
+//     Node a(10), b(20), c(30);
+
+//     a.next = &b;
+//     b.next = &c;
+
+//     cout << a.next->next->value;
+//     return 0;
+// }
+
+//! dynamic node 
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -5,20 +34,25 @@ class Node
 {
 public:
     int value;
-    Node *nodePointer;
+    Node *next;
+
+    Node(int value)
+    {
+        this->value = value;
+        this->next = NULL;
+    }
 };
 
-int main()
-{
-    Node a,b,c ;
-    a.value = 10;
-    b.value = 20;
-    c.value = 30;
+int main() {
 
-    a.nodePointer = &b;
-    b.nodePointer = &c;
-    c.nodePointer = NULL;
+    Node* head = new Node(10); // এইগুলা একেক্তা pointer return করে । 
+    Node* a = new Node(20);
+    Node* b = new Node(30);
 
-    cout << a.nodePointer->nodePointer->value ;
+    head->next = a ;
+    a->next = b ;
+
+    cout << a->value ;
+    
     return 0;
 }
