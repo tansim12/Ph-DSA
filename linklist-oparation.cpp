@@ -216,14 +216,27 @@ void printLinkList(Node *&head)
     }
 }
 
-
+// insert head
 void insertAtHead(Node* &head,int newValue){
     Node* newNode = new Node(newValue);
     newNode->next = head;
     head = newNode;
 }
+
+// insert tail
 void insertAtTail(Node* &head,int newValue){
     Node* newNode = new Node(newValue);
+
+    // check if linklist null or no value here
+    if (head == NULL)
+    {
+        /* code */
+        head = newNode;
+        return;
+    }
+    
+
+
     Node* temp = head ;
     while (temp->next != NULL)
     {
@@ -236,6 +249,7 @@ void insertAtTail(Node* &head,int newValue){
 
 int main()
 {
+    // Node *head = NULL;
     Node *head = new Node(10);
     Node *a = new Node(20);
     Node *b = new Node(30);
