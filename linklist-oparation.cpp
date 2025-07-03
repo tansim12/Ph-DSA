@@ -185,9 +185,88 @@
 //     return 0;
 // }
 
+// //! insert head and tail both
+// #include <bits/stdc++.h>
+// using namespace std;
 
+// class Node
+// {
+// public:
+//     int value;
+//     Node *next;
 
-//! insert head and tail both
+//     Node(int value)
+//     {
+//         this->value = value;
+//         this->next = NULL;
+//     }
+// };
+
+// void printLinkList(Node *&head)
+// {
+
+//     Node *temp = head;
+//     while (temp != NULL)
+//     {
+//         /* code */
+//         cout << temp->value << endl;
+//         temp = temp->next;
+//     }
+// }
+
+// // insert head
+// void insertAtHead(Node* &head,int newValue){
+//     Node* newNode = new Node(newValue);
+//     newNode->next = head;
+//     head = newNode;
+// }
+
+// // insert tail
+// void insertAtTail(Node* &head,int newValue){
+//     Node* newNode = new Node(newValue);
+
+//     // check if linklist null or no value here
+//     if (head == NULL)
+//     {
+//         /* code */
+//         head = newNode;
+//         return;
+//     }
+
+//     Node* temp = head ;
+//     while (temp->next != NULL)
+//     {
+//         temp = temp->next;
+//     }
+//     temp->next = newNode;
+
+// }
+
+// int main()
+// {
+//     // Node *head = NULL;
+//     Node *head = new Node(10);
+//     Node *a = new Node(20);
+//     Node *b = new Node(30);
+
+//     head->next = a;
+//     a->next = b;
+
+//     // insert at head
+//     insertAtHead(head,52);
+//     insertAtHead(head,60);
+
+//     // insert at tail
+//     insertAtTail(head,80);
+//     insertAtTail(head,90);
+
+//     // print here
+//     printLinkList(head);
+
+//     return 0;
+// }
+
+//! insert any where
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -216,16 +295,10 @@ void printLinkList(Node *&head)
     }
 }
 
-// insert head
-void insertAtHead(Node* &head,int newValue){
-    Node* newNode = new Node(newValue);
-    newNode->next = head;
-    head = newNode;
-}
-
-// insert tail
-void insertAtTail(Node* &head,int newValue){
-    Node* newNode = new Node(newValue);
+// insert any where
+void insertByAny(Node *&head, int newValue, int index)
+{
+    Node *newNode = new Node(newValue);
 
     // check if linklist null or no value here
     if (head == NULL)
@@ -234,18 +307,18 @@ void insertAtTail(Node* &head,int newValue){
         head = newNode;
         return;
     }
-    
 
-
-    Node* temp = head ;
-    while (temp->next != NULL)
+    Node *temp = head;
+    for (size_t i = 0; i < index - 1; i++)
     {
+        /* code */
         temp = temp->next;
     }
-    temp->next = newNode;
-    
+    // currently temp is index-1 position.
+    // আগে লাস্টের node এর সাথে add করতে হবে তার পরে first এর টার সাথে add করতে হবে ।
+    newNode->next = temp->next; // connect last
+    temp->next = newNode;       // connect first
 }
-
 
 int main()
 {
@@ -253,17 +326,14 @@ int main()
     Node *head = new Node(10);
     Node *a = new Node(20);
     Node *b = new Node(30);
+    Node *c = new Node(40);
 
     head->next = a;
     a->next = b;
+    b->next = c;
 
-    // insert at head
-    insertAtHead(head,52);
-    insertAtHead(head,60);
-
-    // insert at tail
-    insertAtTail(head,80);
-    insertAtTail(head,90);
+    // insert any
+    insertByAny(head, 80, 2);
 
     // print here
     printLinkList(head);

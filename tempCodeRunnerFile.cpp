@@ -1,2 +1,5 @@
-  // insertAtHead(head,52);
-    // insertAtHead(head,60);
+  // if (index > 0)
+    // {
+    //     /* code */
+    //     index--;
+    // }
