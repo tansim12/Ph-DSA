@@ -373,23 +373,19 @@ void printLinkList(Node *&head)
     }
 }
 
-void insertAtTail(Node *&head, int newValue)
+void insertAtTail(Node *&head,Node *&tail, int newValue)
 {
     Node *newNode = new Node(newValue);
     if (head == NULL)
     {
         /* code */
         head = newNode;
+        tail = newNode;
         return;
     }
 
-    Node *temp = head;
-    while (temp->next != NULL)
-    {
-        /* code */
-        temp = temp->next;
-    }
-    temp->next = newNode;
+    tail->next = newNode;  // new node কে insert করতেছে । 
+    tail = newNode; // tail কে change করতেছে । যদি change না করে তাইলে কিন্তু tail এর লাস্ট এ কোন ভালুএ অ্যাড হবে না ।
 }
 
 int main()
@@ -397,13 +393,14 @@ int main()
     int n;
     cin >> n;
     Node *head = NULL;
+    Node *tail = NULL;
 
     for (size_t i = 0; i < n; i++)
     {
         /* code */
         int newValue;
         cin >> newValue;
-        insertAtTail(head, newValue);
+        insertAtTail(head, tail, newValue);
     }
     // print here
     printLinkList(head);
