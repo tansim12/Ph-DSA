@@ -109,10 +109,6 @@
 //     return 0;
 // }
 
-
-
-
-
 //! Create a singly linked list and print the middle element. If there are multiple values in the middle print both.
 
 // #include <bits/stdc++.h>
@@ -150,8 +146,6 @@
 //         newTem = newTem->next;
 //     }
 
-    
- 
 //     if (count%2 != 0)
 //     {
 //         /* code */
@@ -159,9 +153,7 @@
 //     }else {
 //         cout << newTem->value  << " " << newTem->next->value;
 //     }
-    
-    
-    
+
 // }
 
 // int main()
@@ -182,3 +174,62 @@
 
 //     return 0;
 // }
+
+
+
+
+
+
+//! Create a singly linked list and check if the linked list is sorted in ascending order.
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node
+{
+public:
+    int value;
+    Node *next;
+
+    Node(int value)
+    {
+        this->value = value;
+        this->next = NULL;
+    }
+};
+
+void isSort(Node *head)
+{
+    Node *temp = head;
+    bool isSortValue = true;
+    while (temp && temp->next)
+    {
+        if (temp->value > temp->next->value)
+        {
+            /* code */
+            isSortValue = false;
+            break;
+        }
+        temp = temp->next;
+    }
+
+    cout << (isSortValue ? "YES" : "NO");
+}
+
+int main()
+{
+
+    Node *head = new Node(1);
+    Node *a = new Node(2);
+    Node *b = new Node(3);
+    Node *c = new Node(4);
+    Node *d = new Node(5);
+
+    head->next = a;
+    a->next = b;
+    b->next = c;
+    c->next = d;
+
+    isSort(head);
+
+    return 0;
+}
