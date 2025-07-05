@@ -75,9 +75,16 @@ void insertAny(Node *&head, int index, int newValue)
     temp->next = newNode;
 }
 
-void insertAtHead(Node *&head, int newValue)
+void insertAtHead(Node *&head,Node *&tail, int newValue)
 {
     Node *newNode = new Node(newValue);
+     if (head == NULL)
+    {
+        /* code */
+        head = newNode;
+        tail = newNode;
+        return;
+    }
     newNode->next = head;
     head = newNode;
 };
@@ -118,7 +125,7 @@ int main()
         else if (index == 0)
         {
             // insert head
-            insertAtHead(head, newValue);
+            insertAtHead(head,tail, newValue);
         }
         else if (index == currentSize)
         {
