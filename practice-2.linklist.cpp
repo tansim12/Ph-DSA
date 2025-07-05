@@ -97,9 +97,82 @@
 //     return 0;
 // }
 
+//! Take a singly linked list as input, then print the maximum value of them.
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// class Node
+// {
+// public:
+//     int value;
+//     Node *next;
+
+//     Node(int value)
+//     {
+//         this->value = value;
+//         this->next = NULL;
+//     }
+// };
+
+// void maxFn(Node *&head)
+// {
+//     Node *temp = head;
+//     int maxValue = INT_MIN;
+//     while (temp != NULL)
+//     {
+//         /* code */
+//         if (temp->value > maxValue)
+//         {
+//             maxValue = temp->value;
+//         }
+
+//         temp = temp->next;
+//     }
+
+//     cout << maxValue;
+// }
+
+// void insertAtTail(Node *&head, Node *&tail, int newValue)
+// {
+//     Node *newNode = new Node(newValue);
+//     if (head == NULL)
+//     {
+//         /* code */
+//         head = newNode;
+//         tail = newNode;
+//         return;
+//     }
+
+//     tail->next = newNode;
+//     tail = newNode;
+// }
+
+// int main()
+// {
+//     Node *head1 = NULL;
+//     Node *tail1 = NULL;
+
+//     int val1;
+//     while (true)
+//     {
+//         /* code */
+//         cin >> val1;
+//         if (val1 == -1)
+//         {
+//             /* code */
+//             break;
+//         }
+//         insertAtTail(head1, tail1, val1);
+//     }
+
+//     maxFn(head1);
+
+//     return 0;
+// }
 
 
-//!Take a singly linked list as input, then print the maximum value of them.
+//! Take a singly linked list as input, then take q queries. In each query you will be given an index and value. You need to insert those values in the given index and print the linked list. If the index is invalid print “Invalid”.
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -117,22 +190,29 @@ public:
     }
 };
 
-void maxFn(Node *&head)
+void printLinkList(Node *head)
 {
     Node *temp = head;
-    int maxValue = INT_MIN;
+    while (temp != NULL)
+    {
+        cout << temp->value << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+}
+
+int lengthCount(Node *&head)
+{
+    Node *temp = head;
+    int count = 0;
     while (temp != NULL)
     {
         /* code */
-        if (temp->value > maxValue)
-        {
-            maxValue = temp->value;
-        }
-
+        count++;
         temp = temp->next;
     }
 
-    cout << maxValue;
+    return count;
 }
 
 void insertAtTail(Node *&head, Node *&tail, int newValue)
@@ -150,25 +230,82 @@ void insertAtTail(Node *&head, Node *&tail, int newValue)
     tail = newNode;
 }
 
+void insertAny(Node *&head, int index, int newValue)
+{
+
+    Node *temp = head;
+    Node *newNode = new Node(newValue);
+    for (size_t i = 1; i < index; i++)
+    {
+        if (temp == NULL)
+        {
+            /* code */
+            return;
+        }
+        temp = temp->next;
+    }
+
+    newNode->next = temp->next;
+    temp->next = newNode;
+}
+
+void insertAtHead(Node *&head, int newValue)
+{
+    Node *newNode = new Node(newValue);
+    newNode->next = head;
+    head = newNode;
+};
+
 int main()
 {
-    Node *head1 = NULL;
-    Node *tail1 = NULL;
+    Node *head = NULL;
+    Node *tail = NULL;
 
-    int val1;
+    int val;
     while (true)
     {
         /* code */
-        cin >> val1;
-        if (val1 == -1)
+        cin >> val;
+        if (val == -1)
         {
             /* code */
             break;
         }
-        insertAtTail(head1, tail1, val1);
+        insertAtTail(head, tail, val);
     }
 
-    maxFn(head1);
+    int n;
+    cin >> n;
+    while (n--)
+    {
+        /* code */
+        int index, newValue;
+        cin >> index >> newValue;
+        int currentSize = lengthCount(head);
+
+        if (index < 0 || index > currentSize)
+        {
+            cout << "Invalid" << endl;
+            continue;
+        }
+
+        else if (index == 0)
+        {
+            // insert head
+            insertAtHead(head, newValue);
+        }
+        else if (index == currentSize)
+        {
+            // insert tails
+            insertAtTail(head, tail, newValue);
+        }
+        else
+        {
+            // insert any
+            insertAny(head, index, newValue);
+        }
+        printLinkList(head);
+    }
 
     return 0;
 }
