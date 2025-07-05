@@ -200,6 +200,25 @@ void deleteAtAny(Node *&head, int position)
     delete deleteNode;
 
 }
+void deleteAtTail(Node *&head,Node *&tail, int position)
+{
+    Node *temp = head;
+    for (size_t i = 1; i < position; i++)
+    {
+        /* code */
+        if (temp == NULL)
+        {
+            /* code */
+            return;
+        }
+        temp = temp->next;
+    }
+    Node *deleteNode = temp->next;
+    temp->next = deleteNode->next;
+    delete deleteNode;
+    tail = temp;
+
+}
 
 int main()
 {
@@ -218,14 +237,18 @@ int main()
         }
         insertAtTail(head, tail, val);
     }
-    //! delete head
+    //* delete head
     // deleteHead(head);
 
 
-    //! delete at any 
-    deleteAtAny(head,3);
+    //* delete at any 
+    // deleteAtAny(head,3);
 
-    //! Print with recursion 
+
+    //* delete at any 
+    deleteAtTail(head,tail,6);
+
+    //* Print with recursion 
     printLinkList(head);
 
     return 0;
