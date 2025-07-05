@@ -66,7 +66,7 @@
 // }
 
 
-//! reverse print with recarsion
+//! reverse print with recursion
 #include <bits/stdc++.h>
 using namespace std;
 
