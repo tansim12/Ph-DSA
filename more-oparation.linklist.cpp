@@ -132,7 +132,11 @@
 //     return 0;
 // }
 
-//! delete head
+
+
+
+
+//! delete head , delete any , delete tail , sort linklist
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -220,6 +224,46 @@ void deleteAtTail(Node *&head,Node *&tail, int position)
 
 }
 
+void sortByLinklist(Node *&head)
+{
+    //* main concept
+    // for (size_t i = 0; i < n; i++)
+    // {
+    //     /* code */
+    //     for (size_t j = i+1; j < n; j++)
+    //     {
+    //         /* code */
+    //         if (i>j)
+    //         {
+    //             /* code */
+    //             swap(i,j);
+    //         }
+            
+    //     }
+        
+    // }
+
+
+     for (Node* i = head; i->next != NULL; i= i->next) // i->next != NULL; মানে last er আগে প্রজন্তু যাবে । 
+    {
+        /* code */
+        for (Node* j = i->next; j != NULL; j = j->next) // j != NULL মানে লাস্ট প্রজন্ত যাবে । 
+        {
+            /* code */
+            if (i->value > j->value)
+            {
+                /* code */
+                swap(i->value, j->value);
+            }
+        }
+    }
+
+    
+    
+   
+
+}
+
 int main()
 {
     Node *head = NULL;
@@ -245,8 +289,12 @@ int main()
     // deleteAtAny(head,3);
 
 
-    //* delete at any 
-    deleteAtTail(head,tail,6);
+    //* delete at tail 
+    // deleteAtTail(head,tail,6);
+
+
+    //* Sort by linklist
+    sortByLinklist(head);
 
     //* Print with recursion 
     printLinkList(head);
