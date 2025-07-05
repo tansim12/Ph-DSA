@@ -96,3 +96,79 @@
 
 //     return 0;
 // }
+
+
+
+//!Take a singly linked list as input, then print the maximum value of them.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node
+{
+public:
+    int value;
+    Node *next;
+
+    Node(int value)
+    {
+        this->value = value;
+        this->next = NULL;
+    }
+};
+
+void maxFn(Node *&head)
+{
+    Node *temp = head;
+    int maxValue = INT_MIN;
+    while (temp != NULL)
+    {
+        /* code */
+        if (temp->value > maxValue)
+        {
+            maxValue = temp->value;
+        }
+
+        temp = temp->next;
+    }
+
+    cout << maxValue;
+}
+
+void insertAtTail(Node *&head, Node *&tail, int newValue)
+{
+    Node *newNode = new Node(newValue);
+    if (head == NULL)
+    {
+        /* code */
+        head = newNode;
+        tail = newNode;
+        return;
+    }
+
+    tail->next = newNode;
+    tail = newNode;
+}
+
+int main()
+{
+    Node *head1 = NULL;
+    Node *tail1 = NULL;
+
+    int val1;
+    while (true)
+    {
+        /* code */
+        cin >> val1;
+        if (val1 == -1)
+        {
+            /* code */
+            break;
+        }
+        insertAtTail(head1, tail1, val1);
+    }
+
+    maxFn(head1);
+
+    return 0;
+}
