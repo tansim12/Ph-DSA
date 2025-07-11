@@ -16,19 +16,79 @@ public:
     }
 };
 
+void printForword(Node *&head)
+{
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        /* code */
+        cout << temp->value << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+}
 
-int main() {
+void printBackword(Node *&tail)
+{
+    Node *temp = tail;
+    while (temp != NULL)
+    {
+        /* code */
+        cout << temp->value << " ";
+        temp = temp->prev;
+    }
+    cout << endl;
+}
 
-    Node* head = new Node(10);
-    Node* a = new Node(20);
-    Node* tail = new Node(30);
+// insert at head
+void insertAtHead(Node *&head, int newValue)
+{
+    Node *temp = head;
+    Node *newNode = new Node(newValue);
+    head->prev = newNode;
+    newNode->next = head;
+    head = newNode;
+}
 
-    head->next = a;
-    a->prev = head;
-    a->next = tail;
-    tail->prev = a;
+// insert at tail
+void insertAtTail(Node *&head, Node *&tail, int newValue)
+{
+    Node *newNode = new Node(newValue);
 
-    cout << tail->prev->value ;
-    
+    if (tail == NULL || head == NULL)
+    {
+        /* code */
+        head = newNode;
+        tail = newNode;
+        return;
+    }
+
+    Node *temp = tail;
+    tail->next = newNode;
+    newNode->prev = tail;
+    tail = newNode;
+}
+
+int main()
+{
+    Node *head = NULL;
+    Node *tail = NULL;
+
+    int val;
+    while (true)
+    {
+        /* code */
+        cin >> val;
+        if (val == -1)
+        {
+            /* code */
+            break;
+        }
+         // insert at tail
+        insertAtTail(head, tail, val);
+    }
+
+    printForword(head);
+    printBackword(tail);
     return 0;
 }
