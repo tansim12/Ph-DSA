@@ -41,10 +41,17 @@ void printBackword(Node *&tail)
 }
 
 // insert at head
-void insertAtHead(Node *&head, int newValue)
+void insertAtHead(Node *&head,Node *&tail, int newValue)
 {
-    Node *temp = head;
     Node *newNode = new Node(newValue);
+    if (head == NULL)
+    {
+        /* code */
+        head = newNode;
+        tail = newNode;
+        return;
+    }
+    Node *temp = head;
     head->prev = newNode;
     newNode->next = head;
     head = newNode;
@@ -53,9 +60,9 @@ void insertAtHead(Node *&head, int newValue)
 // insert at tail
 void insertAtTail(Node *&head, Node *&tail, int newValue)
 {
-    Node *newNode = new Node(newValue);
 
-    if (tail == NULL || head == NULL)
+    Node *newNode = new Node(newValue);
+    if (head == NULL)
     {
         /* code */
         head = newNode;
@@ -84,7 +91,7 @@ int main()
             /* code */
             break;
         }
-         // insert at tail
+        // insert at tail
         insertAtTail(head, tail, val);
     }
 
