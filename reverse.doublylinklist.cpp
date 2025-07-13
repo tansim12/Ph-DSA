@@ -6,58 +6,44 @@ class Node
 public:
     int value;
     Node *next;
+    Node *prev;
 
     Node(int value)
     {
         this->value = value;
         this->next = NULL;
+        this->prev = NULL;
     }
 };
 
-
-// void printLinkList(Node *&head)
-// {
-//     Node *temp = head;
-//      if (temp == NULL)
-//     {
-//         /* code */
-//         return;
-//     }
-//     printLinkList(temp->next);
-//     cout << temp->value << endl;
-// }
-
-
-void printLinkList(Node *head)
+void printForword(Node *&head)
 {
     Node *temp = head;
-
     while (temp != NULL)
     {
         /* code */
-        cout << temp->value << endl;
+        cout << temp->value << " ";
         temp = temp->next;
     }
+    cout << endl;
 }
 
-void reverseLinklist(Node *&head,Node *&tail,Node *temp)
+void printBackword(Node *&tail)
 {
-     if (temp->next == NULL)
+    Node *temp = tail;
+    while (temp != NULL)
     {
-        head = temp; // last এ head চলে আসলো । 
-        return;
+        /* code */
+        cout << temp->value << " ";
+        temp = temp->prev;
     }
-    reverseLinklist(head,tail,temp->next);
-    temp->next->next = temp;
-    temp->next = NULL;
-    tail = temp;
+    cout << endl;
 }
 
-
-
-
+// insert at tail
 void insertAtTail(Node *&head, Node *&tail, int newValue)
 {
+
     Node *newNode = new Node(newValue);
     if (head == NULL)
     {
@@ -67,8 +53,20 @@ void insertAtTail(Node *&head, Node *&tail, int newValue)
         return;
     }
 
+    Node *temp = tail;
     tail->next = newNode;
+    newNode->prev = tail;
     tail = newNode;
+}
+
+void reverseDoubly(Node *&head, Node *&tail)
+{
+
+    for (Node *i = head, *j = tail; i != j && i->prev != j; i = i->next, j = j->prev)
+    {
+        /* code */
+        swap(i->value, j->value);
+    }
 }
 
 int main()
@@ -86,12 +84,12 @@ int main()
             /* code */
             break;
         }
+        // insert at tail
         insertAtTail(head, tail, val);
     }
 
-    reverseLinklist(head,tail,head);
-
-    printLinkList(head);
-
+    reverseDoubly(head, tail);
+    printForword(head);
+    // printBackword(tail);
     return 0;
 }
