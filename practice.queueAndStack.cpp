@@ -1,55 +1,95 @@
-//! Take a stack of size N and a queue of size M as input. Then check if both of them are the same or not in the order of removing. You should use STL to solve this problem.
-#include <bits/stdc++.h>
-using namespace std;
+// //! Take a stack of size N and a queue of size M as input. Then check if both of them are the same or not in the order of removing. You should use STL to solve this problem.
+// #include <bits/stdc++.h>
+// using namespace std;
 
-int main()
-{
+// int main()
+// {
 
-    stack<int> st;
-    queue<int> q;
+//     stack<int> st;
+//     queue<int> q;
 
-    int n;
-    cin >> n;
-    for (size_t i = 0; i < n; i++)
-    {
-        /* code */
-        int val;
-        cin >> val;
-        st.push(val);
-    }
-    int n2;
-    cin >> n2;
+//     int n;
+//     cin >> n;
+//     for (size_t i = 0; i < n; i++)
+//     {
+//         /* code */
+//         int val;
+//         cin >> val;
+//         st.push(val);
+//     }
+//     int n2;
+//     cin >> n2;
 
-    if (n != n2)
-    {
-        /* code */
-        cout << "NO";
-        return 0;
-    }
+//     if (n != n2)
+//     {
+//         /* code */
+//         cout << "NO";
+//         return 0;
+//     }
 
-    for (size_t i = 0; i < n2; i++)
-    {
-        /* code */
-        int val;
-        cin >> val;
-        q.push(val);
-    }
+//     for (size_t i = 0; i < n2; i++)
+//     {
+//         /* code */
+//         int val;
+//         cin >> val;
+//         q.push(val);
+//     }
 
-    bool isNotEq = true;
-    while (!st.empty())
-    {
-        /* code */
+//     bool isNotEq = true;
+//     while (!st.empty())
+//     {
+//         /* code */
 
-        if (st.top() != q.front())
-        {
-            /* code */
-            isNotEq = false;
-            break;
-        }
-        st.pop();
-        q.pop();
-    }
-    cout << (isNotEq ? "YES" : "NO");
+//         if (st.top() != q.front())
+//         {
+//             /* code */
+//             isNotEq = false;
+//             break;
+//         }
+//         st.pop();
+//         q.pop();
+//     }
+//     cout << (isNotEq ? "YES" : "NO");
 
-    return 0;
-}
+//     return 0;
+// }
+
+
+//! Take a stack of size N as input and copy those elements to another stack to get the values in the order they were inserted and print them. You should use STL to solve this problem.
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main()
+// {
+
+//     stack<int> st;
+//     stack<int> st2;
+
+//     int n;
+//     cin >> n;
+//     for (size_t i = 0; i < n; i++)
+//     {
+//         /* code */
+//         int val;
+//         cin >> val;
+//         st.push(val);
+//     }
+
+//     while (!st.empty())
+//     {
+//         /* code */
+
+//         int val = st.top();
+//         st.pop();
+//         st2.push(val);
+//     }
+
+//     while (!st2.empty())
+//     {
+//         cout << st2.top() << " " ;
+//         st2.pop();
+//     }
+    
+
+//     return 0;
+// }
