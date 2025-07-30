@@ -37,7 +37,7 @@
 //     return 0;
 // }
 
-//! pre order
+//! pre,in,post order
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -56,7 +56,7 @@ public:
     }
 };
 
-void preOrder(Node *root)
+void orderWisePrint(Node *root)
 {
     if (root == NULL)
         return;
@@ -72,8 +72,8 @@ void preOrder(Node *root)
         // preOrder(root->right);
         
         //* post order   ( left -> right -> root -> )
-        preOrder(root->left);
-        preOrder(root->right);
+        orderWisePrint(root->left);
+        orderWisePrint(root->right);
         cout << root->value << " ";
 }
 
@@ -94,7 +94,7 @@ int main()
     b->left = d;
     b->right = e;
 
-    preOrder(root);
+    orderWisePrint(root);
 
     return 0;
 }
