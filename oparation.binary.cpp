@@ -117,13 +117,16 @@ void levelOrderPrint(Node *root)
     }
 }
 
-Node* inputTree()
+Node *inputTree()
 {
     int val;
     cin >> val;
     Node *root = new Node(val);
+    if (val == -1)
+        root = NULL;
     queue<Node *> q;
-    q.push(root);
+    if (root)
+        q.push(root);
 
     while (!q.empty())
     {
@@ -156,13 +159,13 @@ Node* inputTree()
         if (frontNode->right)
             q.push(frontNode->right);
     }
-    return root ;
+    return root;
 }
 
 int main()
 {
 
-    Node* root = inputTree();
+    Node *root = inputTree();
     levelOrderPrint(root);
 
     return 0;
