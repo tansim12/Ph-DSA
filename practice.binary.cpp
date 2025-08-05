@@ -84,7 +84,24 @@ Node *treeInput()
     return root;
 }
 
+//! max height by tree (start 0)
 int maxHeight(Node *root)
+{
+
+    if (root == NULL)
+        return 0;
+
+    if (root->left == NULL && root->right == NULL)
+        return 0;
+
+    int leftCount = maxHeight(root->left);
+    int rightCount = maxHeight(root->right);
+
+    return max(leftCount, rightCount) + 1;
+}
+
+//! max depth by tree (start 0)
+int maxDeft(Node *root)
 {
 
     if (root == NULL)
