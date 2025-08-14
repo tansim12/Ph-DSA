@@ -83,7 +83,6 @@
 //     return 0;
 // }
 
-
 //! stl map
 // #include <bits/stdc++.h>
 // using namespace std;
@@ -100,7 +99,6 @@
 //     //     cout << it->first << " " << it->second << endl ;
 //     // }
 
-
 //     // check sim is exist or not
 //     if (mp.count("sim"))
 //         cout << "YES";
@@ -108,3 +106,31 @@
 //         cout << "NO";
 //     return 0;
 // }
+
+
+// ! word count by string
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string s;
+    getline(cin, s);
+
+    stringstream ss(s);
+    string word;
+    map<string, int> mp;
+    while (ss >> word)
+    {
+        /* code */
+        mp[word]++;
+    }
+
+    // print mp
+    for (auto it = mp.begin(); it != mp.end(); it++)
+    {
+        cout << it->first << " " << it->second << endl;
+    }
+
+    return 0;
+}
