@@ -1,8 +1,7 @@
-My 1
-abc 3
-ajkfd 1
-akjk 1
-is 1
-name 1
-tanism. 1
-tansim 2
+2
+5
+10
+20
+22
+30
+1

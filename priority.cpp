@@ -109,28 +109,53 @@
 
 
 // ! word count by string
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main()
+// {
+//     string s;
+//     getline(cin, s);
+
+//     stringstream ss(s);
+//     string word;
+//     map<string, int> mp;
+//     while (ss >> word)
+//     {
+//         /* code */
+//         mp[word]++;
+//     }
+
+//     // print mp
+//     for (auto it = mp.begin(); it != mp.end(); it++)
+//     {
+//         cout << it->first << " " << it->second << endl;
+//     }
+
+//     return 0;
+// }
+
+
+
+//! STL set
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    string s;
-    getline(cin, s);
+int main() {
+    set<int>st;
 
-    stringstream ss(s);
-    string word;
-    map<string, int> mp;
-    while (ss >> word)
-    {
-        /* code */
-        mp[word]++;
+    st.insert(10);
+    st.insert(20);
+    st.insert(30);
+    st.insert(2);
+    st.insert(22);
+    st.insert(20);
+    st.insert(5);
+    st.insert(2);
+    for(auto it = st.begin();it!=st.end();it++){
+        cout << *it << endl ;
     }
 
-    // print mp
-    for (auto it = mp.begin(); it != mp.end(); it++)
-    {
-        cout << it->first << " " << it->second << endl;
-    }
-
+    cout << st.count(20); // is exist
     return 0;
 }
