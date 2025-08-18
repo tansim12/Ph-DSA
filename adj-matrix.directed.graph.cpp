@@ -26,7 +26,6 @@ int main()
         int a, b;
         cin >> a >> b;
         adj_mtx[a][b] = 1;
-        adj_mtx[b][a] = 1;
     }
 
     for (size_t i = 0; i < n; i++)
