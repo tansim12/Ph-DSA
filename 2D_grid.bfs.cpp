@@ -1,4 +1,4 @@
-// input by grid dfs
+// input by grid bfs
 #include <bits/stdc++.h>
 using namespace std;
 int r, c;
@@ -15,21 +15,34 @@ bool isValid(int i, int j)
     return true;
 }
 
-void dfs(int si, int sj)
+void bfs(int si, int sj)
 {
-    cout << si << " " << sj << endl;
+    queue<pair<int, int>> q;
+    q.push({si, sj});
     visited[si][sj] = true;
-    for (size_t i = 0; i < 4; i++)
+
+    while (!q.empty())
     {
         /* code */
-        int ci, cj;
-        ci = si + d[i].first;
-        cj = sj + d[i].second;
+        pair<int, int> front = q.front();
+        q.pop();
 
-        if (isValid(ci, cj) && !visited[ci][cj])
+        int front_i = front.first;
+        int front_j = front.second;
+
+        cout << front_i << " " << front_j << endl;
+
+        for (size_t i = 0; i < 4; i++)
         {
-            dfs(ci, cj);
-            visited[ci][cj] = true;
+            /* code */
+            int ci, cj;
+            ci = front_i + d[i].first;
+            cj = front_j + d[i].second;
+            if (isValid(ci, cj) && !visited[ci][cj])
+            {
+                q.push({ci, cj});
+                visited[ci][cj] = true;
+            }
         }
     }
 }
@@ -54,7 +67,7 @@ int main()
     cin >> si >> sj;
 
     memset(visited, false, sizeof(visited));
-    dfs(si, sj);
+    bfs(si, sj);
 
     return 0;
 }
