@@ -40,7 +40,7 @@ void bfs(int si, int sj)
             int ci, cj;
             ci = front_i + d[i].first;
             cj = front_j + d[i].second;
-            if (isValid(ci, cj) && !visited[ci][cj])
+            if (isValid(ci, cj) && !visited[ci][cj] && grid[ci][cj] == '.')
             {
                 q.push({ci, cj});
                 visited[ci][cj] = true;
