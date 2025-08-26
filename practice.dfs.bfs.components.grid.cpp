@@ -55,6 +55,7 @@ int cnt = 0;
 void dfs(int src)
 {
     visited[src] = true;
+    // cout << src;
     for (auto &&child : adj_list[src])
     {
         if (!visited[child])
@@ -88,11 +89,6 @@ int main()
             cnt++;
         }
     }
-
-    int src;
-    cin >> src;
-
-    dfs(src);
 
     cout << cnt;
 
