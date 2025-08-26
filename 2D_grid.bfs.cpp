@@ -1,9 +1,10 @@
-// input by grid bfs
+// input by grid bfs + short distance by other node 
 #include <bits/stdc++.h>
 using namespace std;
 int r, c;
 char grid[105][105];
 bool visited[105][105];
+int level[105][105];
 vector<pair<int, int>> d = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
 // check this node is valid
@@ -20,6 +21,7 @@ void bfs(int si, int sj)
     queue<pair<int, int>> q;
     q.push({si, sj});
     visited[si][sj] = true;
+    level[si][sj] = 0;
 
     while (!q.empty())
     {
@@ -30,7 +32,7 @@ void bfs(int si, int sj)
         int front_i = front.first;
         int front_j = front.second;
 
-        cout << front_i << " " << front_j << endl;
+        // cout << front_i << " " << front_j << endl;
 
         for (size_t i = 0; i < 4; i++)
         {
@@ -42,6 +44,7 @@ void bfs(int si, int sj)
             {
                 q.push({ci, cj});
                 visited[ci][cj] = true;
+                level[ci][cj] = level[front_i][front_j] +1;
             }
         }
     }
@@ -63,11 +66,14 @@ int main()
     }
 
     // source input
-    int si, sj;
-    cin >> si >> sj;
+    int si, sj,di,dj;
+    cin >> si >> sj >> di >> dj ;
 
     memset(visited, false, sizeof(visited));
+    memset(level, -1, sizeof(level));
     bfs(si, sj);
+
+    cout << level[di][dj];
 
     return 0;
 }
