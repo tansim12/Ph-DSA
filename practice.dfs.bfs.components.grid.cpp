@@ -46,24 +46,79 @@
 
 //! You will be given an undirected graph as input. You need to tell the number of components in this graph.
 
+// #include <bits/stdc++.h>
+// using namespace std;
+// vector<int> adj_list[105];
+// bool visited[105];
+// int cnt = 0;
+
+// void dfs(int src)
+// {
+//     visited[src] = true;
+//     // cout << src;
+//     for (auto &&child : adj_list[src])
+//     {
+//         if (!visited[child])
+//         {
+//             dfs(child);
+//             visited[child] = true;
+//         }
+//     }
+// }
+
+// int main()
+// {
+//     int n, e;
+//     cin >> n >> e;
+//     while (e--)
+//     {
+//         /* code */
+//         int a, b;
+//         cin >> a >> b;
+//         adj_list[a].push_back(b);
+//         adj_list[b].push_back(a);
+//     }
+//     memset(visited, false, sizeof(visited));
+
+//     for (size_t i = 0; i < n; i++)
+//     {
+//         /* code */
+//         if (!visited[i])
+//         {
+//             dfs(i);
+//             cnt++;
+//         }
+//     }
+
+//     cout << cnt;
+
+//     return 0;
+// }
+
+//! You will be given an undirected graph as input. You need to tell the number of components in this graph.
+
 #include <bits/stdc++.h>
 using namespace std;
 vector<int> adj_list[105];
 bool visited[105];
-int cnt = 0;
+vector<int> v;
 
-void dfs(int src)
+int dfs(int src)
 {
     visited[src] = true;
     // cout << src;
+    int ct = 1;
+
     for (auto &&child : adj_list[src])
     {
         if (!visited[child])
         {
-            dfs(child);
+            ct += dfs(child);
             visited[child] = true;
         }
     }
+
+    return ct;
 }
 
 int main()
@@ -85,12 +140,16 @@ int main()
         /* code */
         if (!visited[i])
         {
-            dfs(i);
-            cnt++;
+            int compNode = dfs(i);
+            v.push_back(compNode);
         }
     }
 
-    cout << cnt;
+    sort(v.begin(), v.end());
+    for (auto &&i : v)
+    {
+        cout << i << " ";
+    }
 
     return 0;
 }
