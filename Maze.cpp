@@ -2,58 +2,108 @@
 using namespace std;
 
 int r, c;
-vector<string> maze;
+char grid[1005][1005];
 bool visited[1005][1005];
+int parentX[1005][1005];
+int parentY[1005][1005];
+vector<pair<int, int>> d = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}}; 
 
-// Movement order: right, left, up, down
-int dx[] = {0, 0, -1, 1};
-int dy[] = {1, -1, 0, 0};
+// check this node is valid
+bool isValid(int i, int j)
+{
+    if (i < 0 || i >= r || j < 0 || j >= c)
+        return false;
 
-// DFS with backtracking
-bool dfs(int x, int y) {
-    if (maze[x][y] == 'D') return true;
+    return true;
+}
 
-    visited[x][y] = true;
-
-    for (int dir = 0; dir < 4; dir++) {
-        int nx = x + dx[dir];
-        int ny = y + dy[dir];
-
-        if (nx >= 0 && nx < r && ny >= 0 && ny < c) {
-            if (!visited[nx][ny] && (maze[nx][ny] == '.' || maze[nx][ny] == 'D')) {
-                if (dfs(nx, ny)) {
-                    if (maze[x][y] != 'R') maze[x][y] = 'X';
-                    return true;  // only mark the valid path
+void bfs(int si, int sj, int di, int dj)
+{
+    queue<pair<int, int>> q;
+    q.push({si, sj});
+    visited[si][sj] = true;
+    parentX[si][sj] = -1;
+    parentY[si][sj] = -1;
+    
+    while (!q.empty())
+    {
+        pair<int, int> par = q.front();
+        q.pop();
+        
+        int x = par.first;
+        int y = par.second;
+        
+        if (x == di && y == dj)
+        {
+            /* code */
+            while (parentX[x][y] != -1)
+            {
+                int px = parentX[x][y];
+                int py = parentY[x][y];
+                if (grid[x][y] == '.')
+                {
+                    /* code */
+                    grid[x][y] = 'X';
                 }
+                x = px;
+                y = py;
+            }
+            return;
+        }
+        
+        for (size_t i = 0; i < 4; i++)
+        {
+            int ci, cj;
+            ci = x + d[i].first;
+            cj = y + d[i].second;
+
+            if (isValid(ci, cj) && !visited[ci][cj] && (grid[ci][cj] == '.' || grid[ci][cj] == 'D'))
+            {
+                visited[ci][cj] = true;
+                parentX[ci][cj] = x;
+                parentY[ci][cj] = y;
+                q.push({ci, cj});
             }
         }
     }
-
-    return false;
 }
 
-int main() {
+int main()
+{
     cin >> r >> c;
-    maze.resize(r);
-    int startX = -1, startY = -1;
 
-    for (int i = 0; i < r; i++) {
-        cin >> maze[i];
-        for (int j = 0; j < c; j++) {
-            if (maze[i][j] == 'R') {
-                startX = i;
-                startY = j;
+    int si, sj, di, dj;
+    
+    for (size_t i = 0; i < r; i++)
+    {
+        for (size_t j = 0; j < c; j++)
+        {
+            cin >> grid[i][j];
+            if (grid[i][j] == 'R')
+            {
+                si = i;
+                sj = j;
+            }
+            else if (grid[i][j] == 'D')
+            {
+                di = i;
+                dj = j;
             }
         }
     }
 
     memset(visited, false, sizeof(visited));
 
-    dfs(startX, startY);
-
-    for (int i = 0; i < r; i++) {
-        cout << maze[i] << endl;
+    bfs(si, sj, di, dj);
+    
+    for (size_t i = 0; i < r; i++)
+    {
+        for (size_t j = 0; j < c; j++)
+        {
+            cout << grid[i][j];
+        }
+        cout << endl;
     }
-
+    
     return 0;
 }
